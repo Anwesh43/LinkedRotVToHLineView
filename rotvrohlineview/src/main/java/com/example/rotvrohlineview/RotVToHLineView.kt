@@ -213,4 +213,13 @@ class RotVToHLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : RotVToHLineView {
+            val view : RotVToHLineView = RotVToHLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
