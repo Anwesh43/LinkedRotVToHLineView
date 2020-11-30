@@ -23,4 +23,4 @@ val strokeFactor : Float = 90f
 val sizeFactor : Float = 5.6f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
-
+val rot : Float = 90f
