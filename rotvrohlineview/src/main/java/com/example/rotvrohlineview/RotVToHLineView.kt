@@ -47,7 +47,7 @@ fun Canvas.drawRotVToHLine(scale : Float, w : Float, h : Float, paint : Paint) {
         scale(1f - 2 * j, 1f)
         translate(ox.toFinal(fx, sf4), h * 0.5f * sf2)
         rotate(-rot * sf3)
-        drawLine(0f, 0f, 0f, size * sf2, paint)
+        drawLine(0f, 0f, 0f, size * sf1, paint)
         restore()
     }
     restore()
@@ -64,14 +64,16 @@ fun Canvas.drawRVTHLNode(i : Int, scale : Float, paint : Paint) {
 
 class RotVToHLineView(ctx : Context) : View(ctx) {
 
-    override fun onDraw(canvas : Canvas) {
+    private val renderer : Renderer = Renderer(this)
 
+    override fun onDraw(canvas : Canvas) {
+        renderer.render(canvas)
     }
 
     override fun onTouchEvent(event : MotionEvent) : Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-
+                renderer.handleTap()
             }
         }
         return true
