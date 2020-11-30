@@ -188,4 +188,27 @@ class RotVToHLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RotVToHLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val rvthl : RotVToHLine = RotVToHLine(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            rvthl.draw(canvas, paint)
+            animator.animate {
+                rvthl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rvthl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
