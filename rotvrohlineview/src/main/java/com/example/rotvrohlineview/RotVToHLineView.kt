@@ -45,8 +45,8 @@ fun Canvas.drawRotVToHLine(scale : Float, w : Float, h : Float, paint : Paint) {
         val fx : Float = size
         save()
         scale(1f - 2 * j, 1f)
-        translate(ox.toFinal(fx, sf4), h * 0.5f * sf2)
-        rotate(-rot * sf3)
+        translate(ox.toFinal(fx, sf4), -h / 2 + h * 0.5f * sf2)
+        rotate(rot * sf3)
         drawLine(0f, 0f, 0f, size * sf1, paint)
         restore()
     }
