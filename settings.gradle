@@ -1,0 +1,3 @@
+include ':rotvrohlineview'
+include ':app'
+rootProject.name = "LinkedRotVToHLineView"
